@@ -84,6 +84,11 @@ and can be reused on its own.
 
 ---
 
+## Support
+
+These plugins are free for non-commercial use. If they save you time, you can
+buy me a coffee — **[paypal.me/axon003](https://paypal.me/axon003)** ☕. Thank you!
+
 ## License
 
 **PolyForm Noncommercial 1.0.0** — free for non-commercial use. See [LICENSE](LICENSE).
