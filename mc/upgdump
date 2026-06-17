@@ -1,0 +1,14 @@
+#!/bin/sh
+# upgdump — Midnight Commander extfs for PostgreSQL pg_dump custom-format dumps.
+#   Browse a `pg_dump -Fc` archive: schemas become folders, objects become
+#   runnable .sql files (CREATE + COPY data + indexes). Read-only.
+#   Requires: pgfc (in PATH). Encrypted dumps: export PGFC_PW before launching mc.
+# @author Gabriel Diaconu (ERGISS Media)
+PGFC=/usr/local/bin/pgfc
+[ -x "$PGFC" ] || PGFC=pgfc
+cmd="$1"
+case "$cmd" in
+    list)    exec "$PGFC" list "$2" ;;
+    copyout) exec "$PGFC" copyout "$2" "$3" "$4" ;;
+    *)       exit 1 ;;
+esac

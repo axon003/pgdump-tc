@@ -1,0 +1,51 @@
+#!/bin/sh
+# ufsa — Midnight Commander extfs for fsarchiver (.fsa) archives via ergfsarchiver.
+#   Browse an .fsa archive (incl. zstd/lzo/gzip + Blowfish/AES) read-only.
+#   Requires: ergfsarchiver (in PATH) + python3 (to turn `list --json` into ls -l).
+# @author Gabriel Diaconu (ERGISS Media)
+EFS=/usr/local/bin/ergfsarchiver
+[ -x "$EFS" ] || EFS=ergfsarchiver
+cmd="$1"
+case "$cmd" in
+    list)
+        "$EFS" list --json "$2" 2>/dev/null | python3 -c '
+import sys, json, time
+for line in sys.stdin:
+    line = line.strip()
+    if not line:
+        continue
+    try:
+        o = json.loads(line)
+    except Exception:
+        continue
+    t  = o.get("type", "f")
+    p  = o.get("path", "").lstrip("/")
+    if not p:
+        continue
+    sz = int(o.get("size", 0) or 0)
+    uid = o.get("uid", 0); gid = o.get("gid", 0)
+    try:
+        ds = time.strftime("%m-%d-%Y %H:%M", time.localtime(int(o.get("mtime", 0) or 0)))
+    except Exception:
+        ds = "01-01-2026 00:00"
+    if t == "d":
+        perm = "drwxr-xr-x"
+    elif t == "l":
+        perm = "lrwxrwxrwx"
+    else:
+        perm = "-rw-r--r--"
+    if t == "l":
+        print("%s 1 %s %s %d %s %s -> %s" % (perm, uid, gid, sz, ds, p, o.get("target", "")))
+    else:
+        print("%s 1 %s %s %d %s %s" % (perm, uid, gid, sz, ds, p))
+'
+        ;;
+    copyout)
+        arch="$2"; stored="$3"; target="$4"
+        tmp=`mktemp -d`
+        "$EFS" extractfiles "$arch" "/$stored" -O "$tmp" >/dev/null 2>&1
+        [ -f "$tmp/$stored" ] && mv "$tmp/$stored" "$target"
+        rm -rf "$tmp"
+        ;;
+    *) exit 1 ;;
+esac
