@@ -1,0 +1,5 @@
+[plugininstall]
+type=wlx
+file=pgdump.wlx64
+description=pgdump lister - view .pg object files (from the pgdump WCX) as an Excel-like data grid, plus SQL / Info / full reproducible-SQL tabs.
+detect="EXT=""PG""|FORCE"

@@ -1,0 +1,5 @@
+[plugininstall]
+type=wcx
+file=pgdump.wcx64
+description=pgdump - browse PostgreSQL custom-format dumps (-Fc) as archives: schemas=folders, objects=files. Read-only. gzip/zstd/AES, PG 11-17.
+defaultextension=dump

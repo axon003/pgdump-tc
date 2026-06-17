@@ -1,0 +1,14 @@
+EXPORTS
+OpenArchive
+ReadHeader
+ReadHeaderEx
+ProcessFile
+CloseArchive
+SetChangeVolProc
+SetChangeVolProcW
+SetProcessDataProc
+SetProcessDataProcW
+GetPackerCaps
+CanYouHandleThisFile
+PackFiles
+DeleteFiles
