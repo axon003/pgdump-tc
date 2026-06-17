@@ -55,10 +55,14 @@ Press **F3** on a `name.pg` object file:
 
 ## Install
 
-Download the latest [release](https://github.com/axon003/pgdump-tc/releases),
-then **open each plugin's zip in Total Commander** and confirm the install prompt
-(the bundled `pluginst.inf` registers it automatically). Or copy the `.wcx64` /
-`.wlx64` into a folder and add it under *Configuration → Options → Plugins*.
+Get them from the Total Commander **Plugring**:
+- **pgdump** (WCX) — https://totalcmd.net/plugring/pgdump.html
+- **pgdump lister** (WLX) — https://totalcmd.net/plugring/pgdump_lister.html
+
+…or download the latest [release](https://github.com/axon003/pgdump-tc/releases) here.
+Either way, **open each plugin's zip in Total Commander** and confirm the install
+prompt (the bundled `pluginst.inf` registers it automatically), or copy the
+`.wcx64` / `.wlx64` into a folder and add it under *Configuration → Options → Plugins*.
 
 Read-only: these plugins never write to or modify your dump files.
 
@@ -93,5 +97,6 @@ Zstandard (BSD), libgcrypt (LGPL-2.1) — the full source here lets you relink t
 
 - 🌐 Open-source projects — https://www.ergiss.ro/open-source.html
 - 🏠 Main site — https://www.ergiss.ro
-- 🧩 More Total Commander plugins (author **axon003**) — https://totalcmd.net/plugring/
+- 🧩 Plugring — **pgdump** (WCX): https://totalcmd.net/plugring/pgdump.html
+- 🧩 Plugring — **pgdump lister** (WLX): https://totalcmd.net/plugring/pgdump_lister.html
 - 💾 Releases — https://github.com/axon003/pgdump-tc/releases
