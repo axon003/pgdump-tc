@@ -9,8 +9,21 @@ Works on **PostgreSQL 11 … 17** dump archives (archive versions 1.13 … 1.16)
 including plain (gzip) archives and the optional eRGiss extensions
 (zstd compression, AES-256 encryption).
 
-By **Gabriel Diaconu** — part of the [eRGiss](https://ergiss.ro) tooling suite.
-Project page: **https://ergiss.ro/pgdump**
+By **Gabriel Diaconu** — part of the [eRGiss](https://www.ergiss.ro) tooling suite.
+More open-source work: **https://www.ergiss.ro/open-source.html**
+
+---
+
+## Screenshots
+
+**WCX — a dump as a folder tree** (schemas = folders, objects = `name.pg` files,
+*Size* column = row count):
+
+![pgdump WCX](docs/pgdump-wcx-large.png)
+
+**WLX — Excel-like data grid** (press F3 on a `.pg` object; tabs **Data / SQL / Info / Full SQL**):
+
+![pgdump WLX](docs/pgdump-large.png)
 
 ---
 
@@ -78,7 +91,7 @@ Zstandard (BSD), libgcrypt (LGPL-2.1) — the full source here lets you relink t
 
 ## Links
 
-- 🌐 Project page — https://ergiss.ro/pgdump
-- 🏠 Main site — https://ergiss.ro
+- 🌐 Open-source projects — https://www.ergiss.ro/open-source.html
+- 🏠 Main site — https://www.ergiss.ro
 - 🧩 More Total Commander plugins (author **axon003**) — https://totalcmd.net/plugring/
 - 💾 Releases — https://github.com/axon003/pgdump-tc/releases
